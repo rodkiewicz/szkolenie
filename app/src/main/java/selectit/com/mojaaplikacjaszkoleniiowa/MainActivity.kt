@@ -5,28 +5,41 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Adapter
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDate
 
 class MainActivity : AppCompatActivity() {
-
+    lateinit var adapter: KolegaAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         var lista = mutableListOf<Kolega>()
-        val bazadanych = getSharedPreferences("koledzy", Context.MODE_PRIVATE)
+        var bazadanych = getSharedPreferences("koledzy", Context.MODE_PRIVATE)
         var zapisaniKoledzy = bazadanych.getString("kolegow", "")
+
+
+
+        adapter = KolegaAdapter(lista)
+        powtarzalnaLista.adapter = adapter
+        val manager = LinearLayoutManager(this)
+        manager.orientation = RecyclerView.VERTICAL
+        powtarzalnaLista.layoutManager = manager
+
+
 
         if(zapisaniKoledzy != ""){
             val turnsType = object : TypeToken<MutableList<Kolega>>() {}.type
             lista = Gson().fromJson(zapisaniKoledzy, turnsType)
             wyswietlKolegow(lista)
         }
-
 
         button.setOnClickListener {
             var imie = editText.text.toString()
@@ -36,7 +49,6 @@ class MainActivity : AppCompatActivity() {
                 lista.add(kolega)
                 wyswietlKolegow(lista)
                 Toast.makeText(this, "Dodano pomyślnie", Toast.LENGTH_SHORT).show()
-                val bazadanych = getSharedPreferences("koledzy", Context.MODE_PRIVATE)
                 bazadanych.edit().putString("kolegow", Gson().toJson(lista)).apply()
                 Log.d("szkolenie", Gson().toJson(lista))
             }else{
@@ -45,16 +57,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
-
-
     }
 
-    fun wyswietlKolegow(list: MutableList<Kolega>){
-        var tekst = ""
-        list.forEach {
-            tekst += it.name + " = " + it.age + "\n"
-        }
-        textView4.text = tekst
+    fun wyswietlKolegow(nowaLista: MutableList<Kolega>){
+        adapter.list = nowaLista
+        adapter.notifyDataSetChanged()
     }
 }
