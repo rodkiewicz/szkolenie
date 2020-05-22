@@ -1,4 +1,4 @@
-package selectit.com.mojaaplikacjaszkoleniiowa
+package selectit.com.zapisywaczlinkow
 
 import org.junit.Test
 
