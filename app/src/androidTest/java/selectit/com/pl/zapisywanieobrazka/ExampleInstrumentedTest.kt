@@ -1,4 +1,4 @@
-package selectit.com.zapisywaczlinkow
+package selectit.com.pl.zapisywanieobrazka
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("selectit.com.zapisywaczlinkow", appContext.packageName)
+        assertEquals("selectit.com.pl.zapisywanieobrazka", appContext.packageName)
     }
 }

@@ -1,4 +1,4 @@
-package selectit.com.zapisywaczlinkow
+package selectit.com.pl.zapisywanieobrazka
 
 import org.junit.Test
 
