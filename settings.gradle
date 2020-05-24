@@ -1,2 +1,3 @@
-rootProject.name='ZapisywanieObrazka'
+include ':mp3agic-0.9.1'
 include ':app'
+rootProject.name = "ContentResolver"

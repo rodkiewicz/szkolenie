@@ -1,4 +1,4 @@
-package selectit.com.pl.zapisywanieobrazka
+package cz.rodkiewi.contentresolver
 
 import org.junit.Test
 
