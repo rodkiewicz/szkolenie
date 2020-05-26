@@ -1,3 +1,2 @@
-include ':mp3agic-0.9.1'
+rootProject.name='Moja Aplikacja Szkolenia'
 include ':app'
-rootProject.name = "ContentResolver"

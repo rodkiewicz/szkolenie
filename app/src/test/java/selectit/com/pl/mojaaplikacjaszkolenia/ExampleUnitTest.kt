@@ -1,4 +1,4 @@
-package cz.rodkiewi.contentresolver
+package selectit.com.pl.mojaaplikacjaszkolenia
 
 import org.junit.Test
 

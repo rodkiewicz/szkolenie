@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Muzyka Info</string>
+    <string name="app_name">Moja Aplikacja Szkolenia Grupa 2</string>
+    <string name="activity_main">Formularz logowania</string>
+    <string name="activity_drugie">Sprawdz dane</string>
 </resources>
