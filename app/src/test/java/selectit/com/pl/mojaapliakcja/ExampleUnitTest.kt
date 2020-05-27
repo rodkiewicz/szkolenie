@@ -1,4 +1,4 @@
-package selectit.com.pl.mojaaplikacjaszkolenia
+package selectit.com.pl.mojaapliakcja
 
 import org.junit.Test
 
